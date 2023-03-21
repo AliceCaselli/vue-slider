@@ -29,8 +29,8 @@
                 <div class="thumbs">
                     <div @click="scroll('down')" class="prev"></div>
                     <div @click="scroll('up')" class="next"></div>
-                    
-                    <div v-for="card in slides" class="thumb">
+
+                    <div v-for="(card, index) in slides" class="thumb" :class="index == imgIndex ? 'active' : '' ">
                         <img :src="card.image" :alt="card.title" />
                     </div>
                    
