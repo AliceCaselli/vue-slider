@@ -71,19 +71,28 @@ createApp({
       this.imgIndex = slideIndex;
     },
 
+    stopAutoplay(){
+      clearInterval(this.autoplay);
+    },
+
+    startAutoplay(){
+
+      this.autoplay = setInterval(()=>{
+
+        this.scroll('up');
+      }, 3000)
+    }
+  
+
   },
 
   mounted(){
     this.autoplay = setInterval(()=>{
 
       this.scroll('up');
-    }, 1000)
+    }, 3000)
   },
 
-  stopAutoplay(){
-    console.log('ciao');
-    clearInterval(this.autoplay);
-  },
 
 
 }).mount('#app');
