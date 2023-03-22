@@ -14,7 +14,7 @@
     <div id="app">
 
         <div class="container">
-            <div class="slider-wrapper" tabindex="0">
+            <div class="slider-wrapper" tabindex="0" @mouseover="stopAutoplay()">
 
                 <div class="item">
                     <img v-bind:src="slides[imgIndex].image" :alt="slides[imgIndex].title" />
@@ -30,7 +30,7 @@
                     <div @click="scroll('down')" class="prev"></div>
                     <div @click="scroll('up')" class="next"></div>
 
-                    <div v-for="(card, index) in slides" class="thumb" :class="index == imgIndex ? 'active' : '' ">
+                    <div v-for="(card, index) in slides" class="thumb" :class="index == imgIndex ? 'active' : ''" @click="thumbImg(index)">
                         <img :src="card.image" :alt="card.title" />
                     </div>
                    

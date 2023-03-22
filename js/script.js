@@ -36,6 +36,7 @@ createApp({
       ],
 
       imgIndex : 0,
+      autoplay: {},
     }
   },
 
@@ -63,9 +64,27 @@ createApp({
 
         }
       }
-    }
+    },
+
+    thumbImg(slideIndex){
+
+      this.imgIndex = slideIndex;
+    },
 
   },
 
-}).mount('#app')
+  mounted(){
+    this.autoplay = setInterval(()=>{
+
+      this.scroll('up');
+    }, 1000)
+  },
+
+  stopAutoplay(){
+    console.log('ciao');
+    clearInterval(this.autoplay);
+  },
+
+
+}).mount('#app');
 
